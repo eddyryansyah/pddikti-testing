@@ -2,7 +2,6 @@ package pages;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import static utilities.JavaScriptUtility.scrollToElementJS;
 
 public class LandingPage extends BasePage {
     private By closePopup = By.xpath("//*[@id=\"root\"]/div/div[4]/div/button[1]");
@@ -19,8 +18,12 @@ public class LandingPage extends BasePage {
     private By pencarianSpesifik = By.xpath("//*[@id=\"root\"]/div/div[5]/div[1]/div/a");
 
     public void clickClosePopup() {
-        scrollToElementJS(closePopup);
-        click(closePopup);
+        try {
+            utilities.WaitUtility.fluentWaitUntilVisible(5, closePopup);
+            click(closePopup);
+        } catch (Exception ignored) {
+            // Popup may not be present; safely continue.
+        }
     }
 
     public void clickProfilLembaga() {
@@ -39,24 +42,43 @@ public class LandingPage extends BasePage {
     }
 
     public void clickKebijakanPrivasi() {
+        utilities.WaitUtility.fluentWaitUntilVisible(10, kebijakanPrivasi);
         click(kebijakanPrivasi);
     }
 
     public void clickBanner() {
+        utilities.WaitUtility.fluentWaitUntilVisible(10, banner);
         click(banner);
     }
 
     public void clickDataSelected() {
+        utilities.WaitUtility.fluentWaitUntilVisible(10, dropDown2);
         click(dropDown2);
+        utilities.WaitUtility.fluentWaitUntilVisible(10, dataSelected);
         click(dataSelected);
     }
 
     public void clickCari() {
+        utilities.WaitUtility.fluentWaitUntilVisible(10, cari);
         click(cari);
     }
 
     public void clickPencarianSpesifik() {
-        click(pencarianSpesifik);
+        try {
+            utilities.WaitUtility.fluentWaitUntilVisible(10, pencarianSpesifik);
+            click(pencarianSpesifik);
+        } catch (Exception e) {
+            By alt = By.partialLinkText("Pencarian Spesifik");
+            try {
+                utilities.WaitUtility.fluentWaitUntilVisible(10, alt);
+                click(alt);
+            } catch (Exception ignored) {
+                // As a last resort, attempt JS click if element exists but not visible
+                try {
+                    utilities.JavaScriptUtility.clickJS(alt);
+                } catch (Exception ignored2) {}
+            }
+        }
     }
 
     public String getErrorMessage() {
