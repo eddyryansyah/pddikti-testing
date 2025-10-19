@@ -3,7 +3,7 @@ package pages;
 import base.BasePage;
 import org.openqa.selenium.By;
 
-public class xxxviiiKontributor extends BasePage {
+public class p38Kontributor extends BasePage {
     private By navBeranda = By.xpath("//*[@id=\"root\"]/div/div[4]/div[1]/div/span[1]");
     private By navKontributor = By.xpath("//*[@id=\"root\"]/div/div[4]/div[1]/div/span[3]");
     private By tabBatch5 = By.xpath("//*[@id=\"custom-animation\"]/nav/ul/li[1]");

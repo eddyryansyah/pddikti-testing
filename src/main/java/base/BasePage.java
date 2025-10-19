@@ -23,9 +23,9 @@ public class BasePage {
     }
 
     protected void set(By locator, String text) {
-        WebElement el = find(locator);
-        el.clear();
-        el.sendKeys(text);
+        WebElement element = find(locator);
+        element.clear();
+        element.sendKeys(text);
     }
 
     protected void click(By locator) {
@@ -35,24 +35,26 @@ public class BasePage {
         try {
             originalHandle = driver.getWindowHandle();
             beforeHandles = driver.getWindowHandles();
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
 
         // Always pre-scroll the element into view (center) before clicking
         try {
             WebElement toScroll = driver.findElement(locator);
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'center'});", toScroll);
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
 
         // Perform click with existing resilient strategy
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement el = wait.until(ExpectedConditions.elementToBeClickable(locator));
-            el.click();
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+            element.click();
         } catch (Exception e) {
             try {
-                WebElement el = driver.findElement(locator);
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", el);
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+                WebElement element = driver.findElement(locator);
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
             } catch (Exception ignored) {
                 // Swallow as a last resort to keep flows running; specific methods can handle absence.
             }
@@ -73,15 +75,31 @@ public class BasePage {
                     if (!beforeHandles.contains(handle)) {
                         // Switch to new window, close it, and switch back
                         driver.switchTo().window(handle);
-                        try { driver.close(); } catch (Exception ignored) {}
+                        try {
+                            driver.close();
+                        } catch (Exception ignored) {
+                        }
                         break; // Assume single new window per click
                     }
                 }
                 // Switch back to original if still open
                 if (originalHandle != null) {
-                    try { driver.switchTo().window(originalHandle); } catch (Exception ignored) {}
+                    try {
+                        driver.switchTo().window(originalHandle);
+                    } catch (Exception ignored) {
+                    }
                 }
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
+    }
+
+    public static void delay(int milliseconds){
+        // Demo Purpose
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException exc) {
+            exc.printStackTrace();
+        }
     }
 }

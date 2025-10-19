@@ -7,16 +7,17 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.iLandingPage;
+import pages.p1LandingPage;
 
 import java.time.Duration;
 
+import static base.BasePage.delay;
 import static utilities.Utility.setUtilityDriver;
 
 public class BaseTest {
     protected WebDriver driver;
     protected BasePage basePage;
-    protected iLandingPage landingPage;
+    protected p1LandingPage landingPage;
     private String url = "https://pddikti.kemdiktisaintek.go.id";
 
     @BeforeClass
@@ -46,11 +47,12 @@ public class BaseTest {
         basePage = new BasePage();
         basePage.setDriver(driver);
         setUtilityDriver();
-        landingPage = new iLandingPage();
+        landingPage = new p1LandingPage();
     }
 
     @AfterClass
     public void tearDown() {
+        delay(3000);
         driver.quit();
     }
 }
