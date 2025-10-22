@@ -21,6 +21,8 @@ public class p1LandingPage extends BasePage {
     private By selectedMhs = By.xpath("//*[@id=\"material-tailwind-select-4\"]");
     private By searchField = By.xpath("//*[@id=\"root\"]/div/div[5]/div[1]/div/div/div[2]/input");
     private By searchButton = By.xpath("//*[@id=\"root\"]/div/div[5]/div[1]/div/div/div[2]/div/img");
+    private By recaptchaFrame = By.xpath("//div[@class='recaptcha-checkbox-border']");
+    private By recaptchaCheckbox = By.xpath("//*[@id=\"recaptcha-anchor\"]/div[1]");
     private By errorMessage = By.xpath("//*[@id=\"root\"]/div/div[5]/div[1]/div/p");
     private By pencarianSpesifik = By.xpath("//*[@id=\"root\"]/div/div[5]/div[1]/div/a");
     private By programStudi = By.xpath("//*[@id=\"book-wrapper\"]");
@@ -64,16 +66,18 @@ public class p1LandingPage extends BasePage {
             click(closePopup);
     }
 
-    public void clickProfilLembaga() {
+    public p2ProfilLembaga clickProfilLembaga() {
         clickClosePopup();
         click(dropDownNavbar);
         click(profilLembaga);
+        return new p2ProfilLembaga();
     }
 
-    public void clickStandarPelayanan() {
+    public p3StandarPelayanan clickStandarPelayanan() {
         clickClosePopup();
         click(dropDownNavbar);
         click(standarPelayanan);
+        return new p3StandarPelayanan();
     }
 
     public void clickFaq() {
@@ -82,9 +86,10 @@ public class p1LandingPage extends BasePage {
         click(faq);
     }
 
-    public void clickKebijakanPrivasi() {
+    public p4KebijakanPrivasi clickKebijakanPrivasi() {
         clickClosePopup();
         click(kebijakanPrivasi);
+        return new p4KebijakanPrivasi();
     }
 
     public void clickPrevBanner() {
@@ -92,9 +97,10 @@ public class p1LandingPage extends BasePage {
         click(prevBanner);
     }
 
-    public void clickBanner() {
+    public p29Pengumuman clickBanner() {
         clickClosePopup();
         click(banner);
+        return new p29Pengumuman();
     }
 
     public void clickNextBanner() {
@@ -107,6 +113,8 @@ public class p1LandingPage extends BasePage {
         click(dropdownSearch);
         click(selectedAll);
         set(searchField, value);
+        click(searchButton);
+        clickRecaptchaCheckbox();
         return new p5HasilPencarianAll();
     }
 
@@ -115,6 +123,8 @@ public class p1LandingPage extends BasePage {
         click(dropdownSearch);
         click(selectedPT);
         set(searchField, value);
+        click(searchButton);
+        clickRecaptchaCheckbox();
         return new p6HasilPencarianPT();
     }
 
@@ -123,6 +133,8 @@ public class p1LandingPage extends BasePage {
         click(dropdownSearch);
         click(selectedPS);
         set(searchField, value);
+        click(searchButton);
+        clickRecaptchaCheckbox();
         return new p8HasilPencarianPS();
     }
 
@@ -131,6 +143,8 @@ public class p1LandingPage extends BasePage {
         click(dropdownSearch);
         click(selectedDs);
         set(searchField, value);
+        click(searchButton);
+        clickRecaptchaCheckbox();
         return new p10HasilPencarianDs();
     }
 
@@ -139,72 +153,198 @@ public class p1LandingPage extends BasePage {
         click(dropdownSearch);
         click(selectedMhs);
         set(searchField, value);
+        click(searchButton);
+        clickRecaptchaCheckbox();
         return new p12HasilPencarianMhs();
+    }
+
+    public void clickRecaptchaCheckbox() {
+        utilities.WaitUtility.fluentWaitUntilVisible(5, recaptchaCheckbox);
+        click(recaptchaCheckbox);
     }
 
     public String getErrorMessage() {
         return find(errorMessage).getText();
     }
 
-    public void clickPencarianSpesifik() {
-        try {
-            utilities.WaitUtility.fluentWaitUntilVisible(10, pencarianSpesifik);
-            click(pencarianSpesifik);
-        } catch (Exception e) {
-            By alt = By.xpath("//a[contains(.,'Pencarian Spesifik')]");
-            try {
-                utilities.WaitUtility.fluentWaitUntilVisible(10, alt);
-                click(alt);
-            } catch (Exception ignored) {
-                // As a last resort, attempt JS click if element exists but not visible
-                try {
-                    utilities.JavaScriptUtility.clickJS(alt);
-                } catch (Exception ignored2) {}
-            }
-        }
+    public p14PencarianSpesifikMhs clickPencarianSpesifik() {
+        clickClosePopup();
+        click(pencarianSpesifik);
+        return new p14PencarianSpesifikMhs();
     }
 
-    public void clickMenuProgramStudi() {
+    public p15ProgramStudi clickMenuProgramStudi() {
         clickClosePopup();
         click(programStudi);
+        return new p15ProgramStudi();
     }
 
-    public void clickMenuPerguruanTinggi() {
+    public p26PerguruanTinggi clickMenuPerguruanTinggi() {
         clickClosePopup();
         click(perguruanTinggi);
+        return new p26PerguruanTinggi();
     }
 
-    public void clickMenuStatistik() {
+    public p27Statistik clickMenuStatistik() {
         clickClosePopup();
         click(statistik);
+        return new p27Statistik();
     }
 
-    public void clickMenuPublikasi() {
+    public p28Publikasi clickMenuPublikasi() {
         clickClosePopup();
         click(publikasi);
+        return new p28Publikasi();
     }
 
-    public void clickMenuPengumuman() {
+    public p29Pengumuman clickMenuPengumuman() {
         clickClosePopup();
         click(pengumuman);
+        return new p29Pengumuman();
     }
 
-    public void clickMenuPeta() {
+    public p30Peta clickMenuPeta() {
         clickClosePopup();
         click(peta);
+        return new p30Peta();
     }
 
     public void clickCtaCariInformasi() {
+        clickClosePopup();
         click(ctaCariInformasi);
     }
 
-    public void clickCtaKomparasi() {
+    public p31KategoriPerbandingan clickCtaKomparasi() {
+        clickClosePopup();
         click(ctaKomparasi);
+        return new p31KategoriPerbandingan();
     }
 
-    public void clickKontributor() {
+    public void showToolTipBidangIlmu() {
+        clickClosePopup();
+        click(toolTipBidangIlmu);
+    }
+
+    public p15ProgramStudi clickCtaLihatBidangIlmu() {
+        clickClosePopup();
+        click(ctaLihatBidangIlmu);
+        return new p15ProgramStudi();
+    }
+
+    public p21BidangPendidikan clickBidangIlmu1() {
+        clickClosePopup();
+        click(BidangIlmu1);
+        return new p21BidangPendidikan();
+    }
+
+    public p17BidangEkonomi clickBidangIlmu2() {
+        clickClosePopup();
+        click(BidangIlmu2);
+        return new p17BidangEkonomi();
+    }
+
+    public p25BidangTeknik clickBidangIlmu3() {
+        clickClosePopup();
+        click(BidangIlmu3);
+        return new p25BidangTeknik();
+    }
+
+    public p27Statistik clickCtaLihatStatistik() {
+        clickClosePopup();
+        click(ctaLihatStatistik);
+        return new p27Statistik();
+    }
+
+    public void showToolTipStatistikMhs() {
+        clickClosePopup();
+        click(toolTipStatistikMhs);
+    }
+    public p27Statistik clickStatistikMhs() {
+        clickClosePopup();
+        click(statistikMhs);
+        return new p27Statistik();
+    }
+
+    public void showToolTipStatistikDs() {
+        clickClosePopup();
+        click(toolTipStatistikDs);
+    }
+
+    public p27Statistik clickStatistikDs() {
+        clickClosePopup();
+        click(statistikDs);
+        return new p27Statistik();
+    }
+
+    public void showToolTipStatistikPT() {
+        clickClosePopup();
+        click(toolTipStatistikPT);
+    }
+
+    public p27Statistik clickStatistikPT() {
+        clickClosePopup();
+        click(statistikPT);
+        return new p27Statistik();
+    }
+
+    public void showToolTipStatistikPS() {
+        clickClosePopup();
+        click(toolTipStatistikPS);
+    }
+
+    public p27Statistik clickStatistikPS() {
+        clickClosePopup();
+        click(statistikPS);
+        return new p27Statistik();
+    }
+
+    public p28Publikasi clickCtaLihatPublikasi() {
+        clickClosePopup();
+        click(ctaLihatPublikasi);
+        return new p28Publikasi();
+    }
+
+    public void clickCtaPublikasi1() {
+        clickClosePopup();
+        click(ctaPublikasi1);
+    }
+
+    public void clickCtaPublikasi2() {
+        clickClosePopup();
+        click(ctaPublikasi2);
+    }
+
+    public void clickCtaPublikasi3() {
+        clickClosePopup();
+        click(ctaPublikasi3);
+    }
+
+    public void clickCtaPublikasi4() {
+        clickClosePopup();
+        click(ctaPublikasi4);
+    }
+
+    public void showToolTipKegiatan() {
+        clickClosePopup();
+        click(toolTipKegiatan);
+    }
+
+    public p36Kegiatan clickCtaLihatKegiatan() {
+        clickClosePopup();
+        click(ctaLihatKegiatan);
+        return new p36Kegiatan();
+    }
+
+    public p37DetailKegiatan clickCtaKegiatan() {
+        clickClosePopup();
+        click(ctaKegiatan);
+        return new p37DetailKegiatan();
+    }
+
+    public p38Kontributor clickKontributor() {
         clickClosePopup();
         click(kontributor);
+        return new p38Kontributor();
     }
 
     public void clickSocialX() {

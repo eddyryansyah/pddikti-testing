@@ -1,19 +1,25 @@
 package tests;
 
 import base.BaseTest;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.p2ProfilLembaga;
+import pages.p3StandarPelayanan;
+import pages.p5HasilPencarianAll;
 
 public class p1LandingPageTests extends BaseTest {
     @Test(priority = 1)
     public void testDirectProfilLembaga() {
-        landingPage.clickProfilLembaga();
+        p2ProfilLembaga profilLembaga = landingPage.clickProfilLembaga();
+        Assert.assertTrue(profilLembaga.isProfilLembagaHeaderDisplayed(),
+                "\n Profil Lembaga Header Is Not Displayed \n");
     }
 
     @Test(priority = 2)
     public void testDirectStandarPelayanan() {
-        landingPage.clickStandarPelayanan();
+        p3StandarPelayanan standarPelayanan = landingPage.clickStandarPelayanan();
+        Assert.assertTrue(standarPelayanan.isStandarPelayananHeaderDisplayed(),
+                "\n Standar Pelayanan Header Is Not Displayed \n");
     }
 
     @Test(priority = 3)
@@ -27,7 +33,7 @@ public class p1LandingPageTests extends BaseTest {
     }
 
     @Test(priority = 5)
-    public void testBannerInteract() {
+    public void testBannerPrevButton() {
         landingPage.clickBanner();
     }
 
@@ -56,79 +62,86 @@ public class p1LandingPageTests extends BaseTest {
         landingPage.clickClosePopup();
     }
 
-    @Test(priority = 11)
-    public void testErrorMessage() {
-    }
-
     @Test(priority = 12)
-    public void testDirectPencarianSpesifik() {
-        landingPage.clickClosePopup();
-        landingPage.clickPencarianSpesifik();
+    public void testSearchAll() {
+        p5HasilPencarianAll hasilPencarianAll = landingPage.logIntoSearchAll("Oman Komarudin");
+        Assert.assertTrue(hasilPencarianAll.isHasilPencarianAllHeaderDisplayed(),
+                "\n Hasil Pencarian All Header Is Not Displayed \n");
     }
 
     @Test(priority = 13)
+    public void testErrorMessage() {
+        landingPage.logIntoSearchMhs("");
+        String actualMessage = landingPage.getErrorMessage();
+        Assert.assertTrue(actualMessage.contains("Pencarian tidak boleh kosong!"));
+    }
+
+    @Test(priority = 14)
+    public void testDirectPencarianSpesifik() {
+        landingPage.clickPencarianSpesifik();
+    }
+
+    @Test(priority = 15)
     public void testMenuProgramStudi() {
         landingPage.clickMenuProgramStudi();
     }
 
-    @Test(priority = 14)
+    @Test(priority = 16)
     public void testMenuPerguruanTinggi() {
         landingPage.clickMenuPerguruanTinggi();
     }
 
-    @Test(priority = 15)
+    @Test(priority = 17)
     public void testMenuStatistik() {
         landingPage.clickMenuStatistik();
     }
 
-    @Test(priority = 16)
+    @Test(priority = 18)
     public void testMenuPublikasi() {
         landingPage.clickMenuPublikasi();
     }
 
-    @Test(priority = 17)
+    @Test(priority = 19)
     public void testMenuPengumuman() {
         landingPage.clickMenuPengumuman();
     }
 
-    @Test(priority = 18)
+    @Test(priority = 20)
     public void testMenuPeta() {
         landingPage.clickMenuPeta();
     }
 
-    @Test(priority = 19)
+    @Test(priority = 21)
     public void testCtaCariInformasi() {
-        landingPage.clickClosePopup();
         landingPage.clickCtaCariInformasi();
     }
 
-    @Test(priority = 20)
+    @Test(priority = 22)
     public void testCtaKomparasi() {
-        landingPage.clickClosePopup();
         landingPage.clickCtaKomparasi();
     }
 
-    @Test(priority = 21)
+    @Test(priority = 23)
     public void testKontributor() {
         landingPage.clickKontributor();
     }
 
-    @Test(priority = 22)
+    @Test(priority = 24)
     public void testSocialX() {
         landingPage.clickSocialX();
     }
 
-    @Test(priority = 23)
+    @Test(priority = 25)
     public void testSocialInstagram() {
         landingPage.clickSocialInstagram();
     }
 
-    @Test(priority = 24)
+    @Test(priority = 26)
     public void testSocialFacebook() {
         landingPage.clickSocialFacebook();
     }
 
-    @Test(priority = 25)
+    @Test(priority = 27)
     public void testSocialYouTube() {
         landingPage.clickSocialYoutube();
     }
