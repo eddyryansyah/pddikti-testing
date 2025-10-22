@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.p2ProfilLembaga;
 import pages.p3StandarPelayanan;
-import pages.p5HasilPencarianAll;
+import pages.p6HasilPencarianAll;
 
 public class p1LandingPageTests extends BaseTest {
     @Test(priority = 1)
@@ -64,7 +64,7 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 12)
     public void testSearchAll() {
-        p5HasilPencarianAll hasilPencarianAll = landingPage.logIntoSearchAll("Oman Komarudin");
+        p6HasilPencarianAll hasilPencarianAll = landingPage.logIntoSearchAll("Oman Komarudin");
         Assert.assertTrue(hasilPencarianAll.isHasilPencarianAllHeaderDisplayed(),
                 "\n Hasil Pencarian All Header Is Not Displayed \n");
     }
