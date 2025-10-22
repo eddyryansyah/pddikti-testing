@@ -10,7 +10,7 @@ public class p1LandingPage extends BasePage {
     private By standarPelayanan = By.xpath("//div[@class='flex flex-col']/a[text()='Standar Pelayanan']");
     private By faq = By.xpath("//div[@class='flex flex-col']/a[text()='FAQ']");
     private By kebijakanPrivasi = By.xpath("//li/a[text()='Kebijakan Privasi']");
-    private By kebijakanKeamananInformasi = By.xpath("//li/a[text()='Kebijakan Keamanan Informasi']");
+    private By kebijakanKeamananInfo = By.xpath("//li/a[text()='Kebijakan Keamanan Informasi']");
     private By prevBanner = By.xpath("//div[@id='prev']");
     private By banner = By.xpath("//div[@class='slide-wrapper -z-20']/div[@class='slide undefined']");
     private By nextBanner = By.xpath("//div[@id='next']");
@@ -93,9 +93,9 @@ public class p1LandingPage extends BasePage {
         return new p4KebijakanPrivasi();
     }
 
-    public p5KebijakanKeamananInfo clickKebijakanKeamananInformasi() {
+    public p5KebijakanKeamananInfo clickKebijakanKeamananInfo() {
         clickClosePopup();
-        click(kebijakanKeamananInformasi);
+        click(kebijakanKeamananInfo);
         return new p5KebijakanKeamananInfo();
     }
 
