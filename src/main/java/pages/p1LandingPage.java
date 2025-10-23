@@ -243,9 +243,14 @@ public class p1LandingPage extends BasePage {
         return new p32KategoriPerbandingan();
     }
 
-    public void showToolTipBidangIlmu() {
+    public String showToolTipBidangIlmu() {
         clickClosePopup();
-        click(toolTipBidangIlmu);
+        click(iconInfoBidangIlmu);
+        return getToolTipBidangIlmu();
+    }
+
+    public String getToolTipBidangIlmu() {
+        return find(toolTipBidangIlmu).getText();
     }
 
     public p16ProgramStudi clickCtaLihatBidangIlmu() {
@@ -278,19 +283,30 @@ public class p1LandingPage extends BasePage {
         return new p28Statistik();
     }
 
-    public void showToolTipStatistikMhs() {
+    public String showToolTipStatistikMhs() {
         clickClosePopup();
-        click(toolTipStatistikMhs);
+        click(iconInfoStatistikMhs);
+        return getToolTipStatistikMhs();
     }
+
+    public String getToolTipStatistikMhs() {
+        return find(toolTipStatistikMhs).getText();
+    }
+
     public p28Statistik clickStatistikMhs() {
         clickClosePopup();
         click(statistikMhs);
         return new p28Statistik();
     }
 
-    public void showToolTipStatistikDs() {
+    public String showToolTipStatistikDs() {
         clickClosePopup();
-        click(toolTipStatistikDs);
+        click(iconInfoStatistikDs);
+        return getToolTipStatistikDs();
+    }
+
+    public String getToolTipStatistikDs() {
+        return find(toolTipStatistikDs).getText();
     }
 
     public p28Statistik clickStatistikDs() {
@@ -299,9 +315,14 @@ public class p1LandingPage extends BasePage {
         return new p28Statistik();
     }
 
-    public void showToolTipStatistikPT() {
+    public String showToolTipStatistikPT() {
         clickClosePopup();
-        click(toolTipStatistikPT);
+        click(iconInfoStatistikPT);
+        return getToolTipStatistikPT();
+    }
+
+    public String getToolTipStatistikPT() {
+        return find(toolTipStatistikPT).getText();
     }
 
     public p28Statistik clickStatistikPT() {
@@ -310,9 +331,14 @@ public class p1LandingPage extends BasePage {
         return new p28Statistik();
     }
 
-    public void showToolTipStatistikPS() {
+    public String showToolTipStatistikPS() {
         clickClosePopup();
-        click(toolTipStatistikPS);
+        click(iconInfoStatistikPS);
+        return getToolTipStatistikPS();
+    }
+
+    public String getToolTipStatistikPS() {
+        return find(toolTipStatistikPS).getText();
     }
 
     public p28Statistik clickStatistikPS() {
@@ -347,9 +373,14 @@ public class p1LandingPage extends BasePage {
         click(ctaPublikasi4);
     }
 
-    public void showToolTipKegiatan() {
+    public String showToolTipKegiatan() {
         clickClosePopup();
-        click(toolTipKegiatan);
+        click(iconInfoKegiatan);
+        return getToolTipKegiatan();
+    }
+
+    public String getToolTipKegiatan() {
+        return find(toolTipKegiatan).getText();
     }
 
     public p37Kegiatan clickCtaLihatKegiatan() {
