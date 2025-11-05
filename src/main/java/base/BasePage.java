@@ -13,6 +13,7 @@ import java.util.Set;
 
 public class BasePage {
     public static WebDriver driver;
+
     public void setDriver(WebDriver driver) {
         BasePage.driver = driver;
     }
@@ -23,9 +24,8 @@ public class BasePage {
     }
 
     protected void set(By locator, String text) {
-        WebElement element = find(locator);
-        element.clear();
-        element.sendKeys(text);
+        find(locator).clear();
+        find(locator).sendKeys(text);
     }
 
     protected void click(By locator) {
@@ -59,43 +59,9 @@ public class BasePage {
                 // Swallow as a last resort to keep flows running; specific methods can handle absence.
             }
         }
-
-        // If a new window/tab opened, close it and return to original
-        try {
-            // Wait briefly for a new window to appear
-            final int beforeSize = (beforeHandles == null ? 0 : beforeHandles.size());
-            WebDriverWait smallWait = new WebDriverWait(driver, Duration.ofSeconds(1));
-            smallWait.until(d -> driver.getWindowHandles().size() > beforeSize);
-        } catch (Exception ignored) { /* no new window likely */ }
-
-        try {
-            Set<String> afterHandles = driver.getWindowHandles();
-            if (beforeHandles != null && afterHandles.size() > beforeHandles.size()) {
-                for (String handle : afterHandles) {
-                    if (!beforeHandles.contains(handle)) {
-                        // Switch to new window, close it, and switch back
-                        driver.switchTo().window(handle);
-                        try {
-                            driver.close();
-                        } catch (Exception ignored) {
-                        }
-                        break; // Assume single new window per click
-                    }
-                }
-                // Switch back to original if still open
-                if (originalHandle != null) {
-                    try {
-                        driver.switchTo().window(originalHandle);
-                    } catch (Exception ignored) {
-                    }
-                }
-            }
-        } catch (Exception ignored) {
-        }
     }
 
     public static void delay(int milliseconds){
-        // Demo Purpose
         try {
             Thread.sleep(milliseconds);
         } catch (InterruptedException exc) {

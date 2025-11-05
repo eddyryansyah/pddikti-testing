@@ -2,8 +2,6 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.PageLoadStrategy;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -22,22 +20,8 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        // Configure Chrome without blocking site content
-        ChromeOptions options = new ChromeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.EAGER); // still OK for speed, does not block content
-
-        // Keep lightweight flags that do not block website features
-        options.addArguments(
-                "--disable-dev-shm-usage",
-                "--no-sandbox",
-                "--disable-extensions",
-                "--disable-infobars",
-                "--start-maximized"
-        );
-
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
-        // Keep a reasonable page load timeout, but not too high
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
 

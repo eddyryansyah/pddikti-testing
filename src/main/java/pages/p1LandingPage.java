@@ -2,6 +2,12 @@ package pages;
 
 import base.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
+
+import java.util.Set;
+
+import static utilities.GetUtility.*;
+import static utilities.SwitchToUtility.switchToWindow;
 
 public class p1LandingPage extends BasePage {
     private By closePopup = By.xpath("//div[@style='opacity: 1;']//button[text()='Skip All']");
@@ -91,6 +97,17 @@ public class p1LandingPage extends BasePage {
         clickClosePopup();
         click(dropDownNavbar);
         click(faq);
+        switchToNewTab();
+    }
+
+    public void switchToNewTab() {
+        String currentHandle = getWindowHandle();
+        Set<String> allHandles = getWindowHandles();
+        for (String handle : allHandles) {
+            if (!currentHandle.equals(handle)) {
+                switchToWindow(handle);
+            }
+        }
     }
 
     public p4KebijakanPrivasi clickKebijakanPrivasi() {
@@ -245,7 +262,8 @@ public class p1LandingPage extends BasePage {
 
     public String showToolTipBidangIlmu() {
         clickClosePopup();
-        click(iconInfoBidangIlmu);
+        Actions act = new Actions(driver);
+        act.moveToElement(find(iconInfoBidangIlmu)).perform();
         return getToolTipBidangIlmu();
     }
 
@@ -285,7 +303,8 @@ public class p1LandingPage extends BasePage {
 
     public String showToolTipStatistikMhs() {
         clickClosePopup();
-        click(iconInfoStatistikMhs);
+        Actions act = new Actions(driver);
+        act.moveToElement(find(iconInfoStatistikMhs)).perform();
         return getToolTipStatistikMhs();
     }
 
@@ -301,7 +320,8 @@ public class p1LandingPage extends BasePage {
 
     public String showToolTipStatistikDs() {
         clickClosePopup();
-        click(iconInfoStatistikDs);
+        Actions act = new Actions(driver);
+        act.moveToElement(find(iconInfoStatistikDs)).perform();
         return getToolTipStatistikDs();
     }
 
@@ -317,7 +337,8 @@ public class p1LandingPage extends BasePage {
 
     public String showToolTipStatistikPT() {
         clickClosePopup();
-        click(iconInfoStatistikPT);
+        Actions act = new Actions(driver);
+        act.moveToElement(find(iconInfoStatistikPT)).perform();
         return getToolTipStatistikPT();
     }
 
@@ -333,7 +354,8 @@ public class p1LandingPage extends BasePage {
 
     public String showToolTipStatistikPS() {
         clickClosePopup();
-        click(iconInfoStatistikPS);
+        Actions act = new Actions(driver);
+        act.moveToElement(find(iconInfoStatistikPS)).perform();
         return getToolTipStatistikPS();
     }
 
@@ -375,7 +397,8 @@ public class p1LandingPage extends BasePage {
 
     public String showToolTipKegiatan() {
         clickClosePopup();
-        click(iconInfoKegiatan);
+        Actions act = new Actions(driver);
+        act.moveToElement(find(iconInfoKegiatan)).perform();
         return getToolTipKegiatan();
     }
 

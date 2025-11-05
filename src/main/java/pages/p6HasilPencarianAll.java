@@ -4,9 +4,9 @@ import base.BasePage;
 import org.openqa.selenium.By;
 
 public class p6HasilPencarianAll extends BasePage {
-    private static By hasilPencarianALLHeader = By.xpath("//div[@id='root']//div[text()='Hasil Pencarian Semua']");
+    private static By hasilPencarianAllHeader = By.xpath("//div[@id='root']//div[text()='Hasil Pencarian Semua']");
 
     public static boolean isHasilPencarianAllHeaderDisplayed() {
-        return find(hasilPencarianALLHeader).isDisplayed();
+        return find(hasilPencarianAllHeader).isDisplayed();
     }
 }

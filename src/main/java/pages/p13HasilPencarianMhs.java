@@ -1,4 +1,12 @@
 package pages;
 
-public class p13HasilPencarianMhs {
+import base.BasePage;
+import org.openqa.selenium.By;
+
+public class p13HasilPencarianMhs extends BasePage {
+    private static By hasilPencarianMhsHeader = By.xpath("//div[@id='root']//div[text()='Hasil Pencarian Mahasiswa']");
+
+    public static boolean isHasilPencarianMhsHeaderDisplayed() {
+        return find(hasilPencarianMhsHeader).isDisplayed();
+    }
 }
