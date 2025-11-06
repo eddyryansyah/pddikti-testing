@@ -97,10 +97,10 @@ public class p1LandingPage extends BasePage {
         clickClosePopup();
         click(dropDownNavbar);
         click(faq);
-        switchToNewTab();
+        switchToTab();
     }
 
-    public void switchToNewTab() {
+    public void switchToTab() {
         String currentHandle = getWindowHandle();
         Set<String> allHandles = getWindowHandles();
         for (String handle : allHandles) {
@@ -108,6 +108,11 @@ public class p1LandingPage extends BasePage {
                 switchToWindow(handle);
             }
         }
+    }
+
+    public void closeCurrentTab() {
+        driver.close();
+        switchToTab();
     }
 
     public p4KebijakanPrivasi clickKebijakanPrivasi() {

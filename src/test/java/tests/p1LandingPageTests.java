@@ -28,7 +28,7 @@ public class p1LandingPageTests extends BaseTest {
         String actualTitle = getTitle();
         String expectedTitle = "Kanal Pengetahuan Dikti";
         Assert.assertEquals(actualTitle,expectedTitle,
-                "\n Kanal Pengetahuan Dikti Is Not Displayed \n");
+                "\n Actual & Expected Title's Do Not Match \n");
     }
 
     @Test(priority = 4)
