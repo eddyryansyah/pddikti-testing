@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import java.util.List;
 
 public class DropDownUtility extends Utility {
-
     private static Select findDropDown(By locator) {
         return new Select(driver.findElement(locator));
     }

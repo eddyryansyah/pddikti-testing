@@ -7,29 +7,30 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.Set;
 
 import static utilities.GetUtility.*;
-import static utilities.SwitchToUtility.switchToWindow;
+import static utilities.SwitchToUtility.*;
+import static utilities.WaitUtility.*;
 
 public class p1LandingPage extends BasePage {
-    private By closePopup = By.xpath("//div[@style='opacity: 1;']//button[text()='Skip All']");
+    private By closePopup = By.xpath("//button[text()='Skip All']");
     private By dropDownNavbar = By.xpath("//li[text()='Tentang PDDikti']");
-    private By profilLembaga = By.xpath("//div[@class='flex flex-col']/a[text()='Profil Lembaga']");
-    private By standarPelayanan = By.xpath("//div[@class='flex flex-col']/a[text()='Standar Pelayanan']");
-    private By faq = By.xpath("//div[@class='flex flex-col']/a[text()='FAQ']");
-    private By kebijakanPrivasi = By.xpath("//li/a[text()='Kebijakan Privasi']");
-    private By kebijakanKeamananInfo = By.xpath("//li/a[text()='Kebijakan Keamanan Informasi']");
+    private By profilLembaga = By.xpath("//a[text()='Profil Lembaga']");
+    private By standarPelayanan = By.xpath("//a[text()='Standar Pelayanan']");
+    private By faq = By.xpath("//a[text()='FAQ']");
+    private By kebijakanPrivasi = By.xpath("//a[text()='Kebijakan Privasi']");
+    private By kebijakanKeamananInfo = By.xpath("//a[text()='Kebijakan Keamanan Informasi']");
     private By prevBanner = By.xpath("//div[@id='prev']");
-    private By banner = By.xpath("//div[@class='slide-wrapper -z-20']/div[@class='slide undefined']");
+    public By banner = By.xpath("//div[@class='slide undefined']");
     private By nextBanner = By.xpath("//div[@id='next']");
     private By dropdownSearch = By.xpath("//button[@type='button']");
-    private By selectedAll = By.xpath("//ul[@tabindex='-1']/li[text()='Semua']");
-    private By selectedPT = By.xpath("//ul[@tabindex='-1']/li[text()='Perguruan Tinggi']");
-    private By selectedPS = By.xpath("//ul[@tabindex='-1']/li[text()='Program Studi']");
-    private By selectedDs = By.xpath("//ul[@tabindex='-1']/li[text()='Dosen']");
-    private By selectedMhs = By.xpath("//ul[@tabindex='-1']/li[text()='Mahasiswa']");
+    private By selectedAll = By.xpath("//li[text()='Semua']");
+    private By selectedPT = By.xpath("//li[text()='Perguruan Tinggi']");
+    private By selectedPS = By.xpath("//li[text()='Program Studi']");
+    private By selectedDs = By.xpath("//li[text()='Dosen']");
+    private By selectedMhs = By.xpath("//li[text()='Mahasiswa']");
     private By searchField = By.xpath("//input[@type='text']");
-    private By searchButton = By.xpath("//div[@class='cursor-pointer']/img[@alt='cari']");
-    private By recaptchaIframe = By.xpath("//div[@tabindex='-1']//iframe[@title='reCAPTCHA']");
-    private By recaptchaCheckbox = By.xpath("//span[@id=\"recaptcha-anchor\"]/div[@class='recaptcha-checkbox-border']");
+    private By searchButton = By.xpath("//img[@alt='cari']");
+    private By recaptchaIframe = By.xpath("//iframe[@title='reCAPTCHA']");
+    private By recaptchaCheckbox = By.xpath("//div[@class='recaptcha-checkbox-border']");
     private By errorMessage = By.xpath("//p[text()='Pencarian tidak boleh kosong!']");
     private By pencarianSpesifik = By.xpath("//a[text()='Pencarian Spesifik']");
     private By programStudi = By.xpath("//a[@href='/program-studi']//p[text()='Program Studi']");
@@ -38,8 +39,8 @@ public class p1LandingPage extends BasePage {
     private By publikasi = By.xpath("//a[@href='/publikasi']//p[text()='Publikasi']");
     private By pengumuman = By.xpath("//a[@href='/pengumuman']//p[text()='Pengumuman']");
     private By peta = By.xpath("//a[@href='/pt/peta']//p[text()='Peta']");
-    private By ctaCariInformasi = By.xpath("//p[text()='Cari informasi']/a[text()='di sini']");
-    private By ctaKomparasi = By.xpath("//p[text()='Komparasi perguruan tinggi dan program studi impianmu']/span[text()='di sini']");
+    private By ctaCariInformasi = By.xpath("//a[text()='di sini']");
+    private By ctaKomparasi = By.xpath("//span[text()='di sini']");
     private By iconInfoBidangIlmu = By.xpath("//h1[text()='Bidang Ilmu Terpopuler']/following-sibling::span[@class='relative']");
     private By toolTipBidangIlmu = By.xpath("//p[text()='mahasiswa terbanyak ']");
     private By ctaLihatBidangIlmu = By.xpath("//div[4]//p[text()='Lihat semua']");
@@ -49,16 +50,16 @@ public class p1LandingPage extends BasePage {
     private By ctaLihatStatistik = By.xpath("//div[5]/div[1]/div[2]/p[text()='Lihat semua']");
     private By iconInfoStatistikMhs = By.xpath("//p[text()='Mahasiswa']/following-sibling::span[@class='relative']");
     private By toolTipStatistikMhs = By.xpath("//p[text()='Jumlah Mahasiswa Terdaftar']");
-    private By statistikMhs = By.xpath("//p[text()='Mahasiswa']");
+    private By statistikMhs = By.xpath("//div[@class='flex items-center gap-1 text-lg font-medium']//p[text()='Mahasiswa']");
     private By iconInfoStatistikDs = By.xpath("//p[text()='Dosen']/following-sibling::span[@class='relative']");
     private By toolTipStatistikDs = By.xpath("//p[text()='Jumlah dosen']");
-    private By statistikDs = By.xpath("//p[text()='Dosen']");
+    private By statistikDs = By.xpath("//div[@class='flex items-center gap-1 text-lg font-medium']//p[text()='Dosen']");
     private By iconInfoStatistikPT = By.xpath("//p[text()='Perguruan Tinggi']/following-sibling::span[@class='relative']");
     private By toolTipStatistikPT = By.xpath("//p[text()='Jumlah perguruaan tinggi aktif']");
-    private By statistikPT = By.xpath("//p[text()='Perguruan Tinggi']");
+    private By statistikPT = By.xpath("//div[@class='flex items-center gap-1 text-lg font-medium']//p[text()='Perguruan Tinggi']");
     private By iconInfoStatistikPS = By.xpath("//p[text()='Program Studi']/following-sibling::span[@class='relative']");
     private By toolTipStatistikPS = By.xpath("//p[text()='Jumlah program studi aktif']");
-    private By statistikPS = By.xpath("//p[text()='Program Studi']");
+    private By statistikPS = By.xpath("//div[@class='flex items-center gap-1 text-lg font-medium']//p[text()='Program Studi']");
     private By ctaLihatPublikasi = By.xpath("//div[6]//p[text()='Lihat semua']");
     private By ctaPublikasi1 = By.xpath("//div[1]/a[text()='Unduh']");
     private By ctaPublikasi2 = By.xpath("//div[2]/a[text()='Unduh']");
@@ -75,7 +76,7 @@ public class p1LandingPage extends BasePage {
     private By socialYoutube = By.xpath("//a[@href='https://m.youtube.com/c/DitjenDiktiSIGAPMelayani/featured']");
 
     public void clickClosePopup() {
-            utilities.WaitUtility.fluentWaitUntilVisible(5, closePopup);
+            fluentWaitUntilVisible(5, closePopup);
             click(closePopup);
     }
 
@@ -110,11 +111,6 @@ public class p1LandingPage extends BasePage {
         }
     }
 
-    public void closeCurrentTab() {
-        driver.close();
-        switchToTab();
-    }
-
     public p4KebijakanPrivasi clickKebijakanPrivasi() {
         clickClosePopup();
         click(kebijakanPrivasi);
@@ -129,6 +125,8 @@ public class p1LandingPage extends BasePage {
 
     public void clickPrevBanner() {
         clickClosePopup();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(banner)).perform();
         click(prevBanner);
     }
 
@@ -140,6 +138,8 @@ public class p1LandingPage extends BasePage {
 
     public void clickNextBanner() {
         clickClosePopup();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(banner)).perform();
         click(nextBanner);
     }
 
@@ -195,16 +195,16 @@ public class p1LandingPage extends BasePage {
 
     public String clickRecaptchaCheckbox() {
         try {
-            utilities.WaitUtility.waitForPresence(3, recaptchaIframe);
-            driver.switchTo().frame(find(recaptchaIframe));
-            utilities.WaitUtility.waitForClickability(10, recaptchaCheckbox);
+            waitForPresence(3, recaptchaIframe);
+            switchToFrameElement(find(recaptchaIframe));
+            waitForClickability(10, recaptchaCheckbox);
             click(recaptchaCheckbox);
             return null;
         } catch (Exception e) {
-            driver.switchTo().defaultContent();
+            switchToDefaultContent();
             return getErrorMessage();
         } finally {
-            driver.switchTo().defaultContent();
+            switchToDefaultContent();
         }
     }
 
@@ -257,6 +257,7 @@ public class p1LandingPage extends BasePage {
     public void clickCtaCariInformasi() {
         clickClosePopup();
         click(ctaCariInformasi);
+        switchToTab();
     }
 
     public p32KategoriPerbandingan clickCtaKomparasi() {
@@ -383,21 +384,25 @@ public class p1LandingPage extends BasePage {
     public void clickCtaPublikasi1() {
         clickClosePopup();
         click(ctaPublikasi1);
+        switchToTab();
     }
 
     public void clickCtaPublikasi2() {
         clickClosePopup();
         click(ctaPublikasi2);
+        switchToTab();
     }
 
     public void clickCtaPublikasi3() {
         clickClosePopup();
         click(ctaPublikasi3);
+        switchToTab();
     }
 
     public void clickCtaPublikasi4() {
         clickClosePopup();
         click(ctaPublikasi4);
+        switchToTab();
     }
 
     public String showToolTipKegiatan() {

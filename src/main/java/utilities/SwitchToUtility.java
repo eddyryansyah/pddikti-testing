@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SwitchToUtility extends Utility {
-
     private static WebDriver.TargetLocator switchTo() {
         return driver.switchTo();
     }

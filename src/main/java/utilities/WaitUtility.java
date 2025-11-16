@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class WaitUtility extends Utility {
-
     // Legacy no-op kept for backward compatibility; prefer the new helpers below.
     public static void explicitWaitUntilVisible() {
         new WebDriverWait(driver, Duration.ofSeconds(5));

@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 
-import static utilities.GetUtility.getTitle;
+import static utilities.GetUtility.*;
 
 public class p1LandingPageTests extends BaseTest {
     @Test(priority = 1)
@@ -33,27 +33,41 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 4)
     public void testDirectKebijakanPrivasi() {
-        landingPage.clickKebijakanPrivasi();
+        p4KebijakanPrivasi kebijakanPrivasi = landingPage.clickKebijakanPrivasi();
+        Assert.assertTrue(kebijakanPrivasi.isKebijakanPrivasiHeaderDisplayed(),
+                "\n Kebijakan Privasi Header Is Not Displayed \n");
     }
 
     @Test(priority = 5)
     public void testDirectKebijakanKeamananInfo() {
-        landingPage.clickKebijakanKeamananInfo();
+        p5KebijakanKeamananInfo kebijakanKeamananInfo = landingPage.clickKebijakanKeamananInfo();
+        Assert.assertTrue(kebijakanKeamananInfo.isKebijakanKeamananInfoHeaderDisplayed(),
+                "\n Kebijakan Keamanan Info Header Is Not Displayed \n");
     }
 
     @Test(priority = 6)
     public void testBannerPrevButton() {
         landingPage.clickPrevBanner();
+        String actualAction = getAttribute(landingPage.banner, "style");
+        String expectedAction = "background-image: url(\"/images/banner-3.png\");";
+        Assert.assertEquals(actualAction,expectedAction,
+                "\n Actual & Expected Action's Do Not Match \n");
     }
 
     @Test(priority = 7)
     public void testClickBanner() {
-        landingPage.clickBanner();
+        p30Pengumuman pengumuman = landingPage.clickBanner();
+        Assert.assertTrue(pengumuman.isPengumumanNavigationDisplayed(),
+                "\n Pengumuman Navigation Is Not Displayed \n");
     }
 
     @Test(priority = 8)
     public void testBannerNextButton() {
         landingPage.clickNextBanner();
+        String actualAction = getAttribute(landingPage.banner, "style");
+        String expectedAction = "background-image: url(\"/images/banner-2.png\");";
+        Assert.assertEquals(actualAction,expectedAction,
+                "\n Actual & Expected Action's Do Not Match \n");
     }
 
     @Test(priority = 9)
@@ -100,47 +114,67 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 15)
     public void testDirectPencarianSpesifik() {
-        landingPage.clickPencarianSpesifik();
+        p15PencarianSpesifikMhs pencarianSpesifikMhs = landingPage.clickPencarianSpesifik();
+        Assert.assertTrue(pencarianSpesifikMhs.isPencarianSpesifikHeaderDisplayed(),
+                "\n Pencarian Spesifik Header Is Not Displayed \n");
     }
 
     @Test(priority = 16)
     public void testMenuProgramStudi() {
-        landingPage.clickMenuProgramStudi();
+        p16ProgramStudi programStudi = landingPage.clickMenuProgramStudi();
+        Assert.assertTrue(programStudi.isProgramStudiHeaderDisplayed(),
+                "\n Program Studi Header Is Not Displayed \n");
     }
 
     @Test(priority = 17)
     public void testMenuPerguruanTinggi() {
-        landingPage.clickMenuPerguruanTinggi();
+        p27PerguruanTinggi perguruanTinggi = landingPage.clickMenuPerguruanTinggi();
+        Assert.assertTrue(perguruanTinggi.isPerguruanTinggiHeaderDisplayed(),
+                "\n Perguruan Tinggi Header Is Not Displayed \n");
     }
 
     @Test(priority = 18)
     public void testMenuStatistik() {
-        landingPage.clickMenuStatistik();
+        p28Statistik statistik = landingPage.clickMenuStatistik();
+        Assert.assertTrue(statistik.isStatistikHeaderDisplayed(),
+                "\n Statistik Header Is Not Displayed \n");
     }
 
     @Test(priority = 19)
     public void testMenuPublikasi() {
-        landingPage.clickMenuPublikasi();
+        p29Publikasi publikasi = landingPage.clickMenuPublikasi();
+        Assert.assertTrue(publikasi.isPublikasiHeaderDisplayed(),
+                "\n Publikasi Header Is Not Displayed \n");
     }
 
     @Test(priority = 20)
     public void testMenuPengumuman() {
-        landingPage.clickMenuPengumuman();
+        p30Pengumuman pengumuman = landingPage.clickMenuPengumuman();
+        Assert.assertTrue(pengumuman.isPengumumanNavigationDisplayed(),
+                "\n Pengumuman Navigation Is Not Displayed \n");
     }
 
     @Test(priority = 21)
     public void testMenuPeta() {
-        landingPage.clickMenuPeta();
+        p31Peta peta = landingPage.clickMenuPeta();
+        Assert.assertTrue(peta.isPetaHeaderDisplayed(),
+                "\n Peta Header Is Not Displayed \n");
     }
 
     @Test(priority = 22)
     public void testCtaCariInformasi() {
         landingPage.clickCtaCariInformasi();
+        String actualTitle = getTitle();
+        String expectedTitle = "Kanal Pengetahuan Dikti";
+        Assert.assertEquals(actualTitle,expectedTitle,
+                "\n Actual & Expected Title's Do Not Match \n");
     }
 
     @Test(priority = 23)
     public void testCtaKomparasi() {
-        landingPage.clickCtaKomparasi();
+        p32KategoriPerbandingan kategoriPerbandingan = landingPage.clickCtaKomparasi();
+        Assert.assertTrue(kategoriPerbandingan.isKategoriPerbandinganHeaderDisplayed(),
+                "\n Kategori Perbandingan Header Is Not Displayed \n");
     }
 
     @Test(priority = 24)
@@ -152,27 +186,37 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 25)
     public void testCtaLihatBidangIlmu() {
-        landingPage.clickCtaLihatBidangIlmu();
+        p16ProgramStudi programStudi = landingPage.clickCtaLihatBidangIlmu();
+        Assert.assertTrue(programStudi.isProgramStudiHeaderDisplayed(),
+                "\n Program Studi Header Is Not Displayed \n");
     }
 
     @Test(priority = 26)
     public void testClickBidangIlmu1() {
-        landingPage.clickBidangIlmu1();
+        p22BidangPendidikan bidangPendidikan = landingPage.clickBidangIlmu1();
+        Assert.assertTrue(bidangPendidikan.isBidangPendidikanHeaderDisplayed(),
+                "\n Bidang Pendidikan Header Is Not Displayed \n");
     }
 
     @Test(priority = 27)
     public void testClickBidangIlmu2() {
-        landingPage.clickBidangIlmu2();
+        p18BidangEkonomi bidangEkonomi = landingPage.clickBidangIlmu2();
+        Assert.assertTrue(bidangEkonomi.isBidangEkonomiHeaderDisplayed(),
+                "\n Bidang Ekonomi Header Is Not Displayed \n");
     }
 
     @Test(priority = 28)
     public void testClickBidangIlmu3() {
-        landingPage.clickBidangIlmu3();
+        p26BidangTeknik bidangTeknik = landingPage.clickBidangIlmu3();
+        Assert.assertTrue(bidangTeknik.isBidangTeknikHeaderDisplayed(),
+                "\n Bidang Teknik Header Is Not Displayed \n");
     }
 
     @Test(priority = 29)
     public void testCtaLihatStatistik() {
-        landingPage.clickCtaLihatStatistik();
+        p28Statistik statistik = landingPage.clickCtaLihatStatistik();
+        Assert.assertTrue(statistik.isStatistikHeaderDisplayed(),
+                "\n Statistik Header Is Not Displayed \n");
     }
 
     @Test(priority = 30)
@@ -184,7 +228,9 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 31)
     public void testClickStatistikMhs() {
-        landingPage.clickStatistikMhs();
+        p28Statistik statistik = landingPage.clickStatistikMhs();
+        Assert.assertTrue(statistik.isStatistikHeaderDisplayed(),
+                "\n Statistik Header Is Not Displayed \n");
     }
 
     @Test(priority = 32)
@@ -196,7 +242,9 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 33)
     public void testClickStatistikDs() {
-        landingPage.clickStatistikDs();
+        p28Statistik statistik = landingPage.clickStatistikDs();
+        Assert.assertTrue(statistik.isStatistikHeaderDisplayed(),
+                "\n Statistik Header Is Not Displayed \n");
     }
 
     @Test(priority = 34)
@@ -208,7 +256,9 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 35)
     public void testClickStatistikPT() {
-        landingPage.clickStatistikPT();
+        p28Statistik statistik = landingPage.clickStatistikPT();
+        Assert.assertTrue(statistik.isStatistikHeaderDisplayed(),
+                "\n Statistik Header Is Not Displayed \n");
     }
 
     @Test(priority = 36)
@@ -220,32 +270,52 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 37)
     public void testClickStatistikPS() {
-        landingPage.clickStatistikPS();
+        p28Statistik statistik = landingPage.clickStatistikPS();
+        Assert.assertTrue(statistik.isStatistikHeaderDisplayed(),
+                "\n Statistik Header Is Not Displayed \n");
     }
 
     @Test(priority = 38)
     public void testCtaLihatPublikasi() {
-        landingPage.clickCtaLihatPublikasi();
+        p29Publikasi publikasi = landingPage.clickCtaLihatPublikasi();
+        Assert.assertTrue(publikasi.isPublikasiHeaderDisplayed(),
+                "\n Publikasi Header Is Not Displayed \n");
     }
 
     @Test(priority = 39)
     public void testCtaPublikasi1() {
         landingPage.clickCtaPublikasi1();
+        String actualTitle = getTitle();
+        String expectedTitle = "BUKU STATISTIK PENDIDIKAN TINGGI 2024 - PUSDATIN KEMDIKTISAINTEK.pdf - Google Drive";
+        Assert.assertEquals(actualTitle,expectedTitle,
+                "\n Actual & Expected Title's Do Not Match \n");
     }
 
     @Test(priority = 40)
     public void testCtaPublikasi2() {
         landingPage.clickCtaPublikasi2();
+        String actualTitle = getTitle();
+        String expectedTitle = "BUKU STATISTIK PENDIDIKAN TINGGI 2023.pdf";
+        Assert.assertEquals(actualTitle,expectedTitle,
+                "\n Actual & Expected Title's Do Not Match \n");
     }
 
     @Test(priority = 41)
     public void testCtaPublikasi3() {
         landingPage.clickCtaPublikasi3();
+        String actualTitle = getTitle();
+        String expectedTitle = "Buku Statistik Pendidikan Tinggi 2022.pdf";
+        Assert.assertEquals(actualTitle,expectedTitle,
+                "\n Actual & Expected Title's Do Not Match \n");
     }
 
     @Test(priority = 42)
     public void testCtaPublikasi4() {
         landingPage.clickCtaPublikasi4();
+        String actualTitle = getTitle();
+        String expectedTitle = "Statistik Pendidikan Tinggi 2021 (Final).pdf";
+        Assert.assertEquals(actualTitle,expectedTitle,
+                "\n Actual & Expected Title's Do Not Match \n");
     }
 
     @Test(priority = 43)
@@ -257,36 +327,50 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 44)
     public void testCtaLihatKegiatan() {
-        landingPage.clickCtaLihatKegiatan();
+        p37Kegiatan kegiatan = landingPage.clickCtaLihatKegiatan();
+        Assert.assertTrue(kegiatan.isKegiatanHeaderDisplayed(),
+                "\n Kegiatan Header Is Not Displayed \n");
     }
 
     @Test(priority = 45)
     public void testCtaKegiatan() {
-        landingPage.clickCtaKegiatan();
+        p38DetailKegiatan detailKegiatan = landingPage.clickCtaKegiatan();
+        Assert.assertTrue(detailKegiatan.isDetailKegiatanNavigationDisplayed(),
+                "\n Detail Kegiatan Header Is Not Displayed \n");
     }
 
     @Test(priority = 46)
     public void testKontributor() {
-        landingPage.clickKontributor();
+        p39Kontributor kontributor = landingPage.clickKontributor();
+        Assert.assertTrue(kontributor.isKontributorHeaderDisplayed(),
+                "\n Kontributor Header Is Not Displayed \n");
     }
 
     @Test(priority = 47)
     public void testSocialX() {
         landingPage.clickSocialX();
+        String actualURL = getURL();
+        Assert.assertTrue(actualURL.contains("x.com/ditjendikti"));
     }
 
     @Test(priority = 48)
     public void testSocialInstagram() {
         landingPage.clickSocialInstagram();
+        String actualURL = getURL();
+        Assert.assertTrue(actualURL.contains("instagram.com/ditjen.dikti"));
     }
 
     @Test(priority = 49)
     public void testSocialFacebook() {
         landingPage.clickSocialFacebook();
+        String actualURL = getURL();
+        Assert.assertTrue(actualURL.contains("facebook.com/ditjen.dikti"));
     }
 
     @Test(priority = 50)
     public void testSocialYouTube() {
         landingPage.clickSocialYoutube();
+        String actualURL = getURL();
+        Assert.assertTrue(actualURL.contains("youtube.com/c/DitjenDiktiSIGAPMelayani"));
     }
 }

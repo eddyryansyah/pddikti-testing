@@ -4,6 +4,7 @@ import base.BasePage;
 import org.openqa.selenium.By;
 
 public class p39Kontributor extends BasePage {
+    private static By kontributorHeader = By.xpath("//div[text()='Kontributor Laman PDDikti']");
     private By navBeranda = By.xpath("//*[@id=\"root\"]/div/div[4]/div[1]/div/span[1]");
     private By navKontributor = By.xpath("//*[@id=\"root\"]/div/div[4]/div[1]/div/span[3]");
     private By tabBatch5 = By.xpath("//*[@id=\"custom-animation\"]/nav/ul/li[1]");
@@ -11,6 +12,10 @@ public class p39Kontributor extends BasePage {
     private By tabBatch7 = By.xpath("//*[@id=\"custom-animation\"]/nav/ul/li[3]");
     private By linkedin5Kemal = By.xpath("//*[@id=\"custom-animation\"]/div/div[1]/div[2]/div[1]/div/div[2]/div[2]/a");
     private By linkedin6Rezky = By.xpath("//*[@id=\"custom-animation\"]/div/div[2]/div[2]/div[1]/div/div[2]/div[2]/a");
+
+    public static boolean isKontributorHeaderDisplayed() {
+        return find(kontributorHeader).isDisplayed();
+    }
 
     public void clickNavBeranda() {
         click(navBeranda);
