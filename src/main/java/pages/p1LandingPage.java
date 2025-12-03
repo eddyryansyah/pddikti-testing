@@ -11,7 +11,7 @@ import static utilities.SwitchToUtility.*;
 import static utilities.WaitUtility.*;
 
 public class p1LandingPage extends BasePage {
-    private By closePopup = By.xpath("//button[text()='Skip All']");
+    private static By closePopup = By.xpath("//button[text()='Skip All']");
     private By dropDownNavbar = By.xpath("//li[text()='Tentang PDDikti']");
     private By profilLembaga = By.xpath("//a[text()='Profil Lembaga']");
     private By standarPelayanan = By.xpath("//a[text()='Standar Pelayanan']");
@@ -60,7 +60,7 @@ public class p1LandingPage extends BasePage {
     private By iconInfoStatistikPS = By.xpath("//p[text()='Program Studi']/following-sibling::span[@class='relative']");
     private By toolTipStatistikPS = By.xpath("//p[text()='Jumlah program studi aktif']");
     private By statistikPS = By.xpath("//div[@class='flex items-center gap-1 text-lg font-medium']//p[text()='Program Studi']");
-    private By ctaLihatPublikasi = By.xpath("//div[6]//p[text()='Lihat semua']");
+    private By ctaLihatPublikasi = By.xpath("//div[6]/div[1]/div[2]/p[text()='Lihat semua']");
     private By ctaPublikasi1 = By.xpath("//div[1]/a[text()='Unduh']");
     private By ctaPublikasi2 = By.xpath("//div[2]/a[text()='Unduh']");
     private By ctaPublikasi3 = By.xpath("//div[3]/a[text()='Unduh']");
@@ -74,6 +74,10 @@ public class p1LandingPage extends BasePage {
     private By socialInstagram = By.xpath("//a[@href='https://www.instagram.com/ditjen.dikti/']");
     private By socialFacebook = By.xpath("//a[@href='https://m.facebook.com/ditjen.dikti']");
     private By socialYoutube = By.xpath("//a[@href='https://m.youtube.com/c/DitjenDiktiSIGAPMelayani/featured']");
+
+    public static boolean isLandingPageDisplayed() {
+        return find(closePopup).isDisplayed();
+    }
 
     public void clickClosePopup() {
             fluentWaitUntilVisible(5, closePopup);

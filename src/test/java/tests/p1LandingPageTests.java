@@ -285,37 +285,29 @@ public class p1LandingPageTests extends BaseTest {
     @Test(priority = 39)
     public void testCtaPublikasi1() {
         landingPage.clickCtaPublikasi1();
-        String actualTitle = getTitle();
-        String expectedTitle = "BUKU STATISTIK PENDIDIKAN TINGGI 2024 - PUSDATIN KEMDIKTISAINTEK.pdf - Google Drive";
-        Assert.assertEquals(actualTitle,expectedTitle,
-                "\n Actual & Expected Title's Do Not Match \n");
+        String actualURL = getURL();
+        Assert.assertTrue(actualURL.contains("1RcIDvDRs1VNcNAvPCOHeBxBzY3NgXizN"));
     }
 
     @Test(priority = 40)
     public void testCtaPublikasi2() {
         landingPage.clickCtaPublikasi2();
-        String actualTitle = getTitle();
-        String expectedTitle = "BUKU STATISTIK PENDIDIKAN TINGGI 2023.pdf";
-        Assert.assertEquals(actualTitle,expectedTitle,
-                "\n Actual & Expected Title's Do Not Match \n");
+        String actualURL = getURL();
+        Assert.assertTrue(actualURL.contains("BUKU-STATISTIK-PENDIDIKAN-TINGGI-2023.pdf"));
     }
 
     @Test(priority = 41)
     public void testCtaPublikasi3() {
         landingPage.clickCtaPublikasi3();
-        String actualTitle = getTitle();
-        String expectedTitle = "Buku Statistik Pendidikan Tinggi 2022.pdf";
-        Assert.assertEquals(actualTitle,expectedTitle,
-                "\n Actual & Expected Title's Do Not Match \n");
+        String actualURL = getURL();
+        Assert.assertTrue(actualURL.contains("Buku-Statistik-Pendidikan-Tinggi-2022.pdf"));
     }
 
     @Test(priority = 42)
     public void testCtaPublikasi4() {
         landingPage.clickCtaPublikasi4();
-        String actualTitle = getTitle();
-        String expectedTitle = "Statistik Pendidikan Tinggi 2021 (Final).pdf";
-        Assert.assertEquals(actualTitle,expectedTitle,
-                "\n Actual & Expected Title's Do Not Match \n");
+        String actualURL = getURL();
+        Assert.assertTrue(actualURL.contains("Statistik-Pendidikan-Tinggi-2021-Final.pdf"));
     }
 
     @Test(priority = 43)
