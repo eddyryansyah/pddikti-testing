@@ -4,12 +4,6 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.Set;
-
-import static utilities.GetUtility.getWindowHandle;
-import static utilities.GetUtility.getWindowHandles;
-import static utilities.SwitchToUtility.switchToWindow;
-
 public class p39Kontributor extends BasePage {
     private static By kontributorHeader = By.xpath("//div[text()='Kontributor Laman PDDikti']");
     private By berandaNavigation = By.xpath("//span[text()='Beranda']");
@@ -141,7 +135,7 @@ public class p39Kontributor extends BasePage {
     private By linkedin711Nawal = By.xpath("//div[@class='block w-full relative bg-transparent overflow-hidden']/div[3]/div[2]/div[11]//a[text()='LinkedIn']");
     private By card712Lintang = By.xpath("//p[text()='Lintang Yandi Nugraha']");
     private By linkedin712Lintang = By.xpath("//div[@class='block w-full relative bg-transparent overflow-hidden']/div[3]/div[2]/div[12]//a[text()='LinkedIn']");
-    private By card713Ahra = By.xpath("//p[text()='Azhra Yashna Azka']");
+    private By card713Azhra = By.xpath("//p[text()='Azhra Yashna Azka']");
     private By linkedin713Azhra = By.xpath("//div[@class='block w-full relative bg-transparent overflow-hidden']/div[3]/div[2]/div[13]//a[text()='LinkedIn']");
     private By card714Muhammad = By.xpath("//p[text()='Muhammad Haris Sitompul']");
     private By linkedin714Muhammad = By.xpath("//div[@class='block w-full relative bg-transparent overflow-hidden']/div[3]/div[2]/div[14]//a[text()='LinkedIn']");
@@ -170,9 +164,9 @@ public class p39Kontributor extends BasePage {
         return find(kontributorHeader).isDisplayed();
     }
 
-    public p1LandingPage clickBerandaNavigation() {
+    public p01LandingPage clickBerandaNavigation() {
         click(berandaNavigation);
-        return new p1LandingPage();
+        return new p01LandingPage();
     }
 
     public void clickKontributorNavigation() {
@@ -180,7 +174,7 @@ public class p39Kontributor extends BasePage {
     }
 
     public void clickTabBatch5() {
-        click(tabBatch6);
+        click(tabBatch7);
         click(tabBatch5);
     }
 
@@ -190,16 +184,6 @@ public class p39Kontributor extends BasePage {
 
     public void clickTabBatch7() {
             click(tabBatch7);
-    }
-
-    public void switchToTab() {
-        String currentHandle = getWindowHandle();
-        Set<String> allHandles = getWindowHandles();
-        for (String handle : allHandles) {
-            if (!currentHandle.equals(handle)) {
-                switchToWindow(handle);
-            }
-        }
     }
 
     public void clickLinkedin501Kemal() {
@@ -367,6 +351,406 @@ public class p39Kontributor extends BasePage {
         Actions act = new Actions(driver);
         act.moveToElement(find(card524Ryhan)).perform();
         click(linkedin524Ryhan);
+        switchToTab();
+    }
+
+    public void clickLinkedin601Rezky() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card601Rezky)).perform();
+        click(linkedin601Rezky);
+        switchToTab();
+    }
+
+    public void clickLinkedin602Azhari() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card602Azhari)).perform();
+        click(linkedin602Azhari);
+        switchToTab();
+    }
+
+    public void clickLinkedin603Secilia() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card603Secilia)).perform();
+        click(linkedin603Secilia);
+        switchToTab();
+    }
+
+    public void clickLinkedin604Arini() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card604Arini)).perform();
+        click(linkedin604Arini);
+        switchToTab();
+    }
+
+    public void clickLinkedin605Prihandini() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card605Prihandini)).perform();
+        click(linkedin605Prihandini);
+        switchToTab();
+    }
+
+    public void clickLinkedin606Muhammad() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card606Muhammad)).perform();
+        click(linkedin606Muhammad);
+        switchToTab();
+    }
+
+    public void clickLinkedin607Billy() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card607Billy)).perform();
+        click(linkedin607Billy);
+        switchToTab();
+    }
+
+    public void clickLinkedin608Mufidus() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card608Mufidus)).perform();
+        click(linkedin608Mufidus);
+        switchToTab();
+    }
+
+    public void clickLinkedin609Bendry() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card609Bendry)).perform();
+        click(linkedin609Bendry);
+        switchToTab();
+    }
+
+    public void clickLinkedin610Raisa() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card610Raisa)).perform();
+        click(linkedin610Raisa);
+        switchToTab();
+    }
+
+    public void clickLinkedin611Gamas() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card611Gamas)).perform();
+        click(linkedin611Gamas);
+        switchToTab();
+    }
+
+    public void clickLinkedin612Aisyah() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card612Aisyah)).perform();
+        click(linkedin612Aisyah);
+        switchToTab();
+    }
+
+    public void clickLinkedin613Nisaul() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card613Nisaul)).perform();
+        click(linkedin613Nisaul);
+        switchToTab();
+    }
+
+    public void clickLinkedin614Hanif() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card614Hanif)).perform();
+        click(linkedin614Hanif);
+        switchToTab();
+    }
+
+    public void clickLinkedin615Bryan() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card615Bryan)).perform();
+        click(linkedin615Bryan);
+        switchToTab();
+    }
+
+    public void clickLinkedin616Najwaa() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card616Najwaa)).perform();
+        click(linkedin616Najwaa);
+        switchToTab();
+    }
+
+    public void clickLinkedin617Ivykaeyla() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card617Ivykaeyla)).perform();
+        click(linkedin617Ivykaeyla);
+        switchToTab();
+    }
+
+    public void clickLinkedin618Hanifah() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card618Hanifah)).perform();
+        click(linkedin618Hanifah);
+        switchToTab();
+    }
+
+    public void clickLinkedin619Eddy() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card619Eddy)).perform();
+        click(linkedin619Eddy);
+        switchToTab();
+    }
+
+    public void clickLinkedin620Ega() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card620Ega)).perform();
+        click(linkedin620Ega);
+        switchToTab();
+    }
+
+    public void clickLinkedin621Enas() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card621Enas)).perform();
+        click(linkedin621Enas);
+        switchToTab();
+    }
+
+    public void clickLinkedin622Muhammad() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card622Muhammad)).perform();
+        click(linkedin622Muhammad);
+        switchToTab();
+    }
+
+    public void clickLinkedin623Jonathan() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card623Jonathan)).perform();
+        click(linkedin623Jonathan);
+        switchToTab();
+    }
+
+    public void clickLinkedin624Aziza() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card624Aziza)).perform();
+        click(linkedin624Aziza);
+        switchToTab();
+    }
+
+    public void clickLinkedin625Aisyah() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card625Aisyah)).perform();
+        click(linkedin625Aisyah);
+        switchToTab();
+    }
+
+    public void clickLinkedin626Alia() {
+        clickTabBatch6();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card626Alia)).perform();
+        click(linkedin626Alia);
+        switchToTab();
+    }
+
+    public void clickLinkedin701Tino() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card701Tino)).perform();
+        click(linkedin701Tino);
+        switchToTab();
+    }
+
+    public void clickLinkedin702Esther() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card702Esther)).perform();
+        click(linkedin702Esther);
+        switchToTab();
+    }
+
+    public void clickLinkedin703Evan() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card703Evan)).perform();
+        click(linkedin703Evan);
+        switchToTab();
+    }
+
+    public void clickLinkedin704M() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card704M)).perform();
+        click(linkedin704M);
+        switchToTab();
+    }
+
+    public void clickLinkedin705Agus() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card705Agus)).perform();
+        click(linkedin705Agus);
+        switchToTab();
+    }
+
+    public void clickLinkedin706Lifdaria() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card706Lifdaria)).perform();
+        click(linkedin706Lifdaria);
+        switchToTab();
+    }
+
+    public void clickLinkedin707Najla() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card707Najla)).perform();
+        click(linkedin707Najla);
+        switchToTab();
+    }
+
+    public void clickLinkedin708Putera() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card708Putera)).perform();
+        click(linkedin708Putera);
+        switchToTab();
+    }
+
+    public void clickLinkedin709Andra() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card709Andra)).perform();
+        click(linkedin709Andra);
+        switchToTab();
+    }
+
+    public void clickLinkedin710Bendry() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card710Bendry)).perform();
+        click(linkedin710Bendry);
+        switchToTab();
+    }
+
+    public void clickLinkedin711Nawal() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card711Nawal)).perform();
+        click(linkedin711Nawal);
+        switchToTab();
+    }
+
+    public void clickLinkedin712Lintang() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card712Lintang)).perform();
+        click(linkedin712Lintang);
+        switchToTab();
+    }
+
+    public void clickLinkedin713Azhra() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card713Azhra)).perform();
+        click(linkedin713Azhra);
+        switchToTab();
+    }
+
+    public void clickLinkedin714Muhammad() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card714Muhammad)).perform();
+        click(linkedin714Muhammad);
+        switchToTab();
+    }
+
+    public void clickLinkedin715Revandy() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card715Revandy)).perform();
+        click(linkedin715Revandy);
+        switchToTab();
+    }
+
+    public void clickLinkedin716Zikri() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card716Zikri)).perform();
+        click(linkedin716Zikri);
+        switchToTab();
+    }
+
+    public void clickLinkedin717Rio() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card717Rio)).perform();
+        click(linkedin717Rio);
+        switchToTab();
+    }
+
+    public void clickLinkedin718Carissa() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card718Carissa)).perform();
+        click(linkedin718Carissa);
+        switchToTab();
+    }
+
+    public void clickLinkedin719Satrio() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card719Satrio)).perform();
+        click(linkedin719Satrio);
+        switchToTab();
+    }
+
+    public void clickLinkedin720Nabila() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card720Nabila)).perform();
+        click(linkedin720Nabila);
+        switchToTab();
+    }
+
+    public void clickLinkedin721Dalila() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card721Dalila)).perform();
+        click(linkedin721Dalila);
+        switchToTab();
+    }
+
+    public void clickLinkedin722Angela() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card722Angela)).perform();
+        click(linkedin722Angela);
+        switchToTab();
+    }
+
+    public void clickLinkedin723Tiara() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card723Tiara)).perform();
+        click(linkedin723Tiara);
+        switchToTab();
+    }
+
+    public void clickLinkedin724Muhammad() {
+        clickTabBatch7();
+        Actions act = new Actions(driver);
+        act.moveToElement(find(card724Muhammad)).perform();
+        click(linkedin724Muhammad);
         switchToTab();
     }
 }

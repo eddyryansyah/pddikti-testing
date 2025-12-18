@@ -3,7 +3,7 @@ package pages;
 import base.BasePage;
 import org.openqa.selenium.By;
 
-public class p2ProfilLembaga extends BasePage {
+public class p02ProfilLembaga extends BasePage {
     private static By profilLembagaHeader = By.xpath("//h1[text()='Pangkalan Data Pendidikan Tinggi']");
     private By selengkapnya = By.xpath("//button[text()='Selengkapnya']");
     private By fullText = By.xpath("//p[contains(., 'Pada tahun 2014')]");

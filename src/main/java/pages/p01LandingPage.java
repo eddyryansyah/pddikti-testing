@@ -4,13 +4,10 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.Set;
-
-import static utilities.GetUtility.*;
 import static utilities.SwitchToUtility.*;
 import static utilities.WaitUtility.*;
 
-public class p1LandingPage extends BasePage {
+public class p01LandingPage extends BasePage {
     private static By closePopup = By.xpath("//button[text()='Skip All']");
     private By dropDownNavbar = By.xpath("//li[text()='Tentang PDDikti']");
     private By profilLembaga = By.xpath("//a[text()='Profil Lembaga']");
@@ -84,18 +81,18 @@ public class p1LandingPage extends BasePage {
             click(closePopup);
     }
 
-    public p2ProfilLembaga clickProfilLembaga() {
+    public p02ProfilLembaga clickProfilLembaga() {
         clickClosePopup();
         click(dropDownNavbar);
         click(profilLembaga);
-        return new p2ProfilLembaga();
+        return new p02ProfilLembaga();
     }
 
-    public p3StandarPelayanan clickStandarPelayanan() {
+    public p03StandarPelayanan clickStandarPelayanan() {
         clickClosePopup();
         click(dropDownNavbar);
         click(standarPelayanan);
-        return new p3StandarPelayanan();
+        return new p03StandarPelayanan();
     }
 
     public void clickFaq() {
@@ -105,26 +102,16 @@ public class p1LandingPage extends BasePage {
         switchToTab();
     }
 
-    public void switchToTab() {
-        String currentHandle = getWindowHandle();
-        Set<String> allHandles = getWindowHandles();
-        for (String handle : allHandles) {
-            if (!currentHandle.equals(handle)) {
-                switchToWindow(handle);
-            }
-        }
-    }
-
-    public p4KebijakanPrivasi clickKebijakanPrivasi() {
+    public p04KebijakanPrivasi clickKebijakanPrivasi() {
         clickClosePopup();
         click(kebijakanPrivasi);
-        return new p4KebijakanPrivasi();
+        return new p04KebijakanPrivasi();
     }
 
-    public p5KebijakanKeamananInfo clickKebijakanKeamananInfo() {
+    public p05KebijakanKeamananInfo clickKebijakanKeamananInfo() {
         clickClosePopup();
         click(kebijakanKeamananInfo);
-        return new p5KebijakanKeamananInfo();
+        return new p05KebijakanKeamananInfo();
     }
 
     public void clickPrevBanner() {
@@ -147,34 +134,34 @@ public class p1LandingPage extends BasePage {
         click(nextBanner);
     }
 
-    public p6HasilPencarianAll logIntoSearchAll(String value) {
+    public p06HasilPencarianAll logIntoSearchAll(String value) {
         clickClosePopup();
         click(dropdownSearch);
         click(selectedAll);
         set(searchField, value);
         click(searchButton);
         clickRecaptchaCheckbox();
-        return new p6HasilPencarianAll();
+        return new p06HasilPencarianAll();
     }
 
-    public p7HasilPencarianPT logIntoSearchPT(String value) {
+    public p07HasilPencarianPT logIntoSearchPT(String value) {
         clickClosePopup();
         click(dropdownSearch);
         click(selectedPT);
         set(searchField, value);
         click(searchButton);
         clickRecaptchaCheckbox();
-        return new p7HasilPencarianPT();
+        return new p07HasilPencarianPT();
     }
 
-    public p9HasilPencarianPS logIntoSearchPS(String value) {
+    public p09HasilPencarianPS logIntoSearchPS(String value) {
         clickClosePopup();
         click(dropdownSearch);
         click(selectedPS);
         set(searchField, value);
         click(searchButton);
         clickRecaptchaCheckbox();
-        return new p9HasilPencarianPS();
+        return new p09HasilPencarianPS();
     }
 
     public p11HasilPencarianDs logIntoSearchDs(String value) {

@@ -3,7 +3,7 @@ package pages;
 import base.BasePage;
 import org.openqa.selenium.By;
 
-public class p3StandarPelayanan extends BasePage {
+public class p03StandarPelayanan extends BasePage {
     private static By standarPelayananHeader = By.xpath("//div[text()='Standar Pelayanan']");
     private By berandaNavigation = By.xpath("//span[text()='Beranda']");
     private By standarPelayananNavigation = By.xpath("//span[text()='Standar Pelayanan']");
@@ -20,9 +20,9 @@ public class p3StandarPelayanan extends BasePage {
         return find(standarPelayananHeader).isDisplayed();
     }
 
-    public p1LandingPage clickBerandaNavigation() {
+    public p01LandingPage clickBerandaNavigation() {
         click(berandaNavigation);
-        return new p1LandingPage();
+        return new p01LandingPage();
     }
 
     public void clickStandarPelayananNavigation() {

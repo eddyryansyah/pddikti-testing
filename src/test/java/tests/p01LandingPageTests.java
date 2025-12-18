@@ -7,40 +7,42 @@ import pages.*;
 
 import static utilities.GetUtility.*;
 
-public class p1LandingPageTests extends BaseTest {
+public class p01LandingPageTests extends BaseTest {
     @Test(priority = 1)
     public void testDirectProfilLembaga() {
-        p2ProfilLembaga profilLembaga = landingPage.clickProfilLembaga();
+        p02ProfilLembaga profilLembaga = landingPage.clickProfilLembaga();
         Assert.assertTrue(profilLembaga.isProfilLembagaHeaderDisplayed(),
                 "\n Profil Lembaga Header Is Not Displayed \n");
     }
 
     @Test(priority = 2)
     public void testDirectStandarPelayanan() {
-        p3StandarPelayanan standarPelayanan = landingPage.clickStandarPelayanan();
+        p03StandarPelayanan standarPelayanan = landingPage.clickStandarPelayanan();
         Assert.assertTrue(standarPelayanan.isStandarPelayananHeaderDisplayed(),
                 "\n Standar Pelayanan Header Is Not Displayed \n");
     }
 
     @Test(priority = 3)
     public void testDirectFaq() {
+        String mainHandle = getWindowHandle();
         landingPage.clickFaq();
         String actualTitle = getTitle();
         String expectedTitle = "Kanal Pengetahuan Dikti";
         Assert.assertEquals(actualTitle,expectedTitle,
                 "\n Actual & Expected Title's Do Not Match \n");
+        basePage.closeAllTabsExceptMain(mainHandle);
     }
 
     @Test(priority = 4)
     public void testDirectKebijakanPrivasi() {
-        p4KebijakanPrivasi kebijakanPrivasi = landingPage.clickKebijakanPrivasi();
+        p04KebijakanPrivasi kebijakanPrivasi = landingPage.clickKebijakanPrivasi();
         Assert.assertTrue(kebijakanPrivasi.isKebijakanPrivasiHeaderDisplayed(),
                 "\n Kebijakan Privasi Header Is Not Displayed \n");
     }
 
     @Test(priority = 5)
     public void testDirectKebijakanKeamananInfo() {
-        p5KebijakanKeamananInfo kebijakanKeamananInfo = landingPage.clickKebijakanKeamananInfo();
+        p05KebijakanKeamananInfo kebijakanKeamananInfo = landingPage.clickKebijakanKeamananInfo();
         Assert.assertTrue(kebijakanKeamananInfo.isKebijakanKeamananInfoHeaderDisplayed(),
                 "\n Kebijakan Keamanan Info Header Is Not Displayed \n");
     }
@@ -72,21 +74,21 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 9)
     public void testSearchAll() {
-        p6HasilPencarianAll hasilPencarianAll = landingPage.logIntoSearchAll("Oman Komarudin");
+        p06HasilPencarianAll hasilPencarianAll = landingPage.logIntoSearchAll("Oman Komarudin");
         Assert.assertTrue(hasilPencarianAll.isHasilPencarianAllHeaderDisplayed(),
                 "\n Hasil Pencarian All Header Is Not Displayed \n");
     }
 
     @Test(priority = 10)
     public void testSearchPT() {
-        p7HasilPencarianPT hasilPencarianPT = landingPage.logIntoSearchPT("Universitas Singaperbangsa Karawang");
+        p07HasilPencarianPT hasilPencarianPT = landingPage.logIntoSearchPT("Universitas Singaperbangsa Karawang");
         Assert.assertTrue(hasilPencarianPT.isHasilPencarianPTHeaderDisplayed(),
                 "\n Hasil Pencarian PT Header Is Not Displayed \n");
     }
 
     @Test(priority = 11)
     public void testSearchPS() {
-        p9HasilPencarianPS hasilPencarianPS = landingPage.logIntoSearchPS("Informatika");
+        p09HasilPencarianPS hasilPencarianPS = landingPage.logIntoSearchPS("Informatika");
         Assert.assertTrue(hasilPencarianPS.isHasilPencarianPSHeaderDisplayed(),
                 "\n Hasil Pencarian PS Header Is Not Displayed \n");
     }
@@ -163,11 +165,13 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 22)
     public void testCtaCariInformasi() {
+        String mainHandle = getWindowHandle();
         landingPage.clickCtaCariInformasi();
         String actualTitle = getTitle();
         String expectedTitle = "Kanal Pengetahuan Dikti";
         Assert.assertEquals(actualTitle,expectedTitle,
                 "\n Actual & Expected Title's Do Not Match \n");
+        basePage.closeAllTabsExceptMain(mainHandle);
     }
 
     @Test(priority = 23)
@@ -284,30 +288,38 @@ public class p1LandingPageTests extends BaseTest {
 
     @Test(priority = 39)
     public void testCtaPublikasi1() {
+        String mainHandle = getWindowHandle();
         landingPage.clickCtaPublikasi1();
         String actualURL = getURL();
         Assert.assertTrue(actualURL.contains("1RcIDvDRs1VNcNAvPCOHeBxBzY3NgXizN"));
+        basePage.closeAllTabsExceptMain(mainHandle);
     }
 
     @Test(priority = 40)
     public void testCtaPublikasi2() {
+        String mainHandle = getWindowHandle();
         landingPage.clickCtaPublikasi2();
         String actualURL = getURL();
         Assert.assertTrue(actualURL.contains("BUKU-STATISTIK-PENDIDIKAN-TINGGI-2023.pdf"));
+        basePage.closeAllTabsExceptMain(mainHandle);
     }
 
     @Test(priority = 41)
     public void testCtaPublikasi3() {
+        String mainHandle = getWindowHandle();
         landingPage.clickCtaPublikasi3();
         String actualURL = getURL();
         Assert.assertTrue(actualURL.contains("Buku-Statistik-Pendidikan-Tinggi-2022.pdf"));
+        basePage.closeAllTabsExceptMain(mainHandle);
     }
 
     @Test(priority = 42)
     public void testCtaPublikasi4() {
+        String mainHandle = getWindowHandle();
         landingPage.clickCtaPublikasi4();
         String actualURL = getURL();
         Assert.assertTrue(actualURL.contains("Statistik-Pendidikan-Tinggi-2021-Final.pdf"));
+        basePage.closeAllTabsExceptMain(mainHandle);
     }
 
     @Test(priority = 43)

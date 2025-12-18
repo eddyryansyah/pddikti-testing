@@ -3,7 +3,7 @@ package pages;
 import base.BasePage;
 import org.openqa.selenium.By;
 
-public class p4KebijakanPrivasi extends BasePage {
+public class p04KebijakanPrivasi extends BasePage {
     private static By kebijakanPrivasiHeader = By.xpath("//div[text()='Privacy Policy']");
     private By berandaNavigation = By.xpath("//span[text()='Beranda']");
     private By kebijakanPrivasiNavigation = By.xpath("//span[text()='Privacy Policy']");
@@ -22,9 +22,9 @@ public class p4KebijakanPrivasi extends BasePage {
         return find(kebijakanPrivasiHeader).isDisplayed();
     }
 
-    public p1LandingPage clickBerandaNavigation() {
+    public p01LandingPage clickBerandaNavigation() {
         click(berandaNavigation);
-        return new p1LandingPage();
+        return new p01LandingPage();
     }
 
     public void clickKebijakanPrivasiNavigation() {

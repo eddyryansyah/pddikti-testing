@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.p1LandingPage;
+import pages.p01LandingPage;
 
 import java.time.Duration;
 
@@ -15,7 +15,7 @@ import static utilities.Utility.setUtilityDriver;
 public class BaseTest {
     protected WebDriver driver;
     protected BasePage basePage;
-    protected p1LandingPage landingPage;
+    protected p01LandingPage landingPage;
     private String url = "https://pddikti.kemdiktisaintek.go.id";
 
     @BeforeClass
@@ -31,7 +31,7 @@ public class BaseTest {
         basePage = new BasePage();
         basePage.setDriver(driver);
         setUtilityDriver();
-        landingPage = new p1LandingPage();
+        landingPage = new p01LandingPage();
     }
 
     @AfterClass

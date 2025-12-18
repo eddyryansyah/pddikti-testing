@@ -11,6 +11,10 @@ import java.time.Duration;
 import java.util.HashSet;
 import java.util.Set;
 
+import static utilities.GetUtility.getWindowHandle;
+import static utilities.GetUtility.getWindowHandles;
+import static utilities.SwitchToUtility.switchToWindow;
+
 public class BasePage {
     public static WebDriver driver;
 
@@ -59,6 +63,26 @@ public class BasePage {
                 // Swallow as a last resort to keep flows running; specific methods can handle absence.
             }
         }
+    }
+
+    public void switchToTab() {
+        String currentHandle = getWindowHandle();
+        Set<String> allHandles = getWindowHandles();
+        for (String handle : allHandles) {
+            if (!currentHandle.equals(handle)) {
+                switchToWindow(handle);
+            }
+        }
+    }
+
+    public void closeAllTabsExceptMain(String mainHandle) {
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(mainHandle)) {
+                switchToWindow(handle);
+                driver.close();
+            }
+        }
+        driver.switchTo().window(mainHandle);
     }
 
     public static void delay(int milliseconds){
